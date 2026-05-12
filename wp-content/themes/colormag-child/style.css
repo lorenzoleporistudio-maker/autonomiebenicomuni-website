@@ -8,6 +8,23 @@ Template:       colormag
 Version:        0.1.0
 */
 ----------------------------
+/* =TYPOGRAPHY — Titoli istituzionali
+----------------------------------------------- */
+h1, h2, h3, h4, h5, h6,
+.entry-title,
+.type-post .entry-title,
+.type-page .entry-title,
+#content .post .article-content .entry-title,
+.widget-title span,
+.page-header .page-title span,
+.site-title,
+#site-title a {
+    font-family: 'Merriweather', Georgia, serif;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.25;
+}
+
 /* =NAVIGATION
 ----------------------------------------------- */
 nav li > ul,
