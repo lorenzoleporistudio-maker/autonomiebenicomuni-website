@@ -72,184 +72,215 @@ h1, h2, h3, h4, h5, h6,
 ----------------------------------------------- */
 nav li > ul,
 nav li > ol {
-	margin: 0;
-	list-style: none;
+    margin: 0;
+    list-style: none;
 }
+
+/* Barra nav */
 #site-navigation {
-   box-shadow: 0 0 2px rgba(0, 0, 0, 0.1) inset;
-   position: relative;
-   border-top: 4px solid #23598b;
-   border-bottom: 2px solid #23598b;
-   background-color: #fff;
+    background: #ffffff;
+    border-top: none;
+    border-bottom: 1px solid #e2e2e2;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    position: relative;
 }
+
 #site-navigation .inner-wrap {
-   position: relative;
+    position: relative;
+    display: flex;
+    align-items: center;
 }
-.home-icon {
-   float: left;
-}
-.home-icon .fa {
-   color: #ef8201;
-   font-size: 27px;
-}
-.home-icon.front_page_on {
-   background-color: rgba(0, 0, 0, 0);
-}
-.main-navigation .home-icon a {
-   padding: 7px 10px 6px;
-}
-.main-small-navigation .home-icon a {
-   padding: 7px 10px;
-}
-.main-navigation {
-	width: 100%;
-	text-align: center;
-}
-.main-navigation li {
-	float: left;
-	position: relative;
-	font-family: 'Open Sans', serif;
-	font-weight: 300;
-}
-.main-navigation a {
-   color: #000000;
-	display: block;
-	float: none;
-	font-size: 14px;
-   font-weight: 600;
-	padding: 10px 12px;
-   text-transform: uppercase;
-}
+
+/* Icona home */
+.home-icon        { float: left; }
+.home-icon .fa    { color: #23598b; font-size: 17px; }
+.home-icon.front_page_on { background: rgba(35,89,139,0.07); }
+.main-navigation .home-icon a,
+.main-small-navigation .home-icon a { padding: 15px 12px; display: block; }
+
+/* Lista */
+.main-navigation          { width: 100%; }
+.main-navigation ul       { list-style: none; margin: 0; padding: 0; }
+.main-navigation li       { float: left; position: relative; transition: box-shadow 0.15s; }
 .main-navigation li.default-menu,
-li.default-menu {
-	display: none;
+li.default-menu           { display: none; }
+
+/* Link top-level */
+.main-navigation a {
+    display: block;
+    float: none;
+    color: #2d2d2d;
+    font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+    font-size: 0.84rem;
+    font-weight: 500;
+    padding: 15px 14px;
+    letter-spacing: 0.01em;
+    text-transform: none;
+    text-decoration: none;
+    background: transparent;
+    transition: color 0.15s;
+    white-space: nowrap;
 }
-.main-navigation a:hover,
-.main-navigation ul li.current-menu-item a,
-.main-navigation ul li.current_page_ancestor a,
-.main-navigation ul li.current-menu-ancestor a,
-.main-navigation ul li.current_page_item a,
-.main-navigation ul li:hover > a {
+
+/* Indicatore attivo/hover — inset shadow, non sposta il layout */
+.main-navigation > div > ul > li:hover,
+.main-navigation > div > ul > li.current-menu-item,
+.main-navigation > div > ul > li.current_page_item,
+.main-navigation > div > ul > li.current-menu-ancestor,
+.main-navigation > div > ul > li.current_page_ancestor {
+    box-shadow: inset 0 -3px 0 #23598b;
 }
-.main-navigation a:hover,
-.main-navigation ul li.current-menu-item a,
-.main-navigation ul li.current-menu-item a:after,
-.main-navigation ul li.current_page_ancestor a,
-.main-navigation ul li.current-menu-ancestor a,
-.main-navigation ul li.current_page_item a,
-.main-navigation ul li:hover > a,
-.main-navigation li.menu-item-has-children:hover > a:after {
-	color: #ef8201;
-	background: none;
+
+.main-navigation > div > ul > li:hover > a,
+.main-navigation > div > ul > li.current-menu-item > a,
+.main-navigation > div > ul > li.current_page_item > a,
+.main-navigation > div > ul > li.current-menu-ancestor > a,
+.main-navigation > div > ul > li.current_page_ancestor > a {
+    color: #23598b;
 }
-.main-navigation li.menu-item-has-children > a:after,
-.main-navigation li li.menu-item-has-children > a:after,
-.main-navigation li.page_item_has_children > a:after,
-.main-navigation li li.page_item_has_children > a:after {
-   font-family: FontAwesome;
-   font-style: normal;
-   font-weight: normal;
-   text-decoration: inherit;
-   color: #f2f2f2;
-background-color: #fff;
-   font-size: 14px;
-   padding-left: 6px;
+
+/* Frecce dropdown — carattere Unicode, no FontAwesome */
+.main-navigation li.menu-item-has-children > a::after,
+.main-navigation li.page_item_has_children > a::after {
+    content: ' ▾';
+    font-family: inherit;
+    font-size: 0.68rem;
+    font-weight: normal;
+    font-style: normal;
+    opacity: 0.6;
+    color: inherit;
 }
-.main-navigation ul li ul li a,
-.main-navigation ul li.current-menu-item ul li a,
-.main-navigation ul li ul li.current-menu-item a,
-.main-navigation ul li.current_page_ancestor ul li a,
-.main-navigation ul li.current-menu-ancestor ul li a,
-.main-navigation ul li.current_page_item ul li a {
-	float: none;
-	font-size: 14px;
-	height: 100%;
-	padding: 10px 15px;
-	color: #000;
-	background-color: #fff;
-	width: 170px;
-	text-align: left;
-	text-transform: none;
+.main-navigation li li.menu-item-has-children > a::after,
+.main-navigation li li.page_item_has_children > a::after {
+    content: ' ›';
+    position: absolute;
+    right: 12px;
+    opacity: 0.5;
 }
-.main-navigation ul li ul li a:hover,
-.main-navigation ul li ul li:hover > a,
-.main-navigation ul li.current-menu-item ul li a:hover {
-   color: #ef8201;
-   background-color: #f2f2f2;
-}
-.main-navigation li.menu-item-has-children > a:after,
-.main-navigation li.page_item_has_children > a:after {
-   content: "\f107";
-   color: #ef8201;
-background-color: #fff;
-}
-.main-navigation li li.menu-item-has-children > a:after,
-.main-navigation li li.page_item_has_children > a:after {
-   content: "\f105";
-   position: absolute;
-   right: 8px;
-}
+
 /* =DROP DOWN
 ----------------------------------------------- */
-.main-navigation .sub-menu,
-.main-navigation .children {
-   background-color: #f2f2f2;
-color: #f2f2f2;
-}
+
+/* Dropdown nascosto di default */
 .main-navigation ul li ul,
 .main-navigation ul li:hover ul ul,
-.main-navigation ul ul li:hover ul ul,
-.main-navigation ul ul ul li:hover ul ul,
-.main-navigation ul ul ul ul li:hover ul ul {
-	display: none;
-	z-index: 100;
+.main-navigation ul ul li:hover ul ul {
+    display: none;
+    z-index: 500;
 }
-.main-navigation ul li:hover ul,
-.main-navigation ul ul li:hover ul,
-.main-navigation ul ul ul li:hover ul,
-.main-navigation ul ul ul ul li:hover ul,
-.main-navigation ul ul ul ul ul li:hover ul {
-	display: block;
+
+/* Mostra al hover */
+.main-navigation ul li:hover > ul,
+.main-navigation ul ul li:hover > ul {
+    display: block;
 }
+
+/* Stile dropdown */
 .main-navigation ul li ul {
-	position: absolute;
-	width: 200px;
-	top: 42px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 230px;
+    background: #ffffff;
+    border: 1px solid #e2e2e2;
+    border-top: 3px solid #23598b;
+    box-shadow: 0 6px 22px rgba(0,0,0,0.10);
+    padding: 6px 0;
+    margin: 0;
+    list-style: none;
 }
-.main-navigation ul li ul li {
-	float: none;
+
+/* Reset indicatore su li dentro dropdown */
+.main-navigation ul li ul li,
+.main-navigation ul li ul li:hover {
+    float: none;
+    box-shadow: none;
 }
-.main-navigation ul li ul li a {
-   border-top: none;
-}
+
+/* Link dentro dropdown */
 .main-navigation ul li ul li a,
 .main-navigation ul li.current-menu-item ul li a,
 .main-navigation ul li ul li.current-menu-item a,
 .main-navigation ul li.current_page_ancestor ul li a,
 .main-navigation ul li.current-menu-ancestor ul li a,
 .main-navigation ul li.current_page_item ul li a {
-	float: none;
-	font-size: 14px;
-	height: 100%;
-	padding: 10px 15px;
-	color: #000;
-	width: 170px;
-   text-align: left;
-   text-transform: none;
+    display: block;
+    float: none;
+    color: #2d2d2d;
+    font-size: 0.84rem;
+    font-weight: 400;
+    padding: 9px 18px 9px 15px;
+    text-transform: none;
+    text-align: left;
+    width: 100%;
+    background: transparent;
+    border-left: 3px solid transparent;
+    transition: color 0.12s, background 0.12s, border-color 0.12s;
+    white-space: nowrap;
 }
+
 .main-navigation ul li ul li a:hover,
 .main-navigation ul li ul li:hover > a,
-.main-navigation ul li.current-menu-item ul li a:hover {
-   color: #ef8201;
-   background-color: #f2f2f2;
+.main-navigation ul li.current-menu-item ul li a:hover,
+.main-navigation ul li ul li.current-menu-item > a {
+    color: #23598b;
+    background: #f4f7fb;
+    border-left-color: #23598b;
+    text-decoration: none;
 }
+
+/* Terzo livello */
 .main-navigation ul li ul li ul {
-	left: 200px;
-	top: 0;
+    left: 100%;
+    top: -3px;
+    border-top: 3px solid #23598b;
 }
-.main-navigation select {
-	display: none;
+
+/* Mega-menu 2 colonne per dropdown con 6+ voci (CSS :has) */
+@supports selector(:has(*)) {
+    .main-navigation ul li > ul:has(li:nth-child(6)) {
+        min-width: 440px;
+        columns: 2;
+        column-gap: 0;
+        padding: 8px 0;
+    }
+    .main-navigation ul li > ul:has(li:nth-child(6)) li {
+        break-inside: avoid;
+        display: block;
+    }
 }
+
+/* Icona search */
+.fa.search-top {
+    color: #5a5a5a;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 15px 12px;
+    position: absolute;
+    right: 24px;
+    top: 0;
+    transition: color 0.15s;
+    background: transparent;
+}
+.fa.search-top:hover {
+    color: #23598b;
+    background: transparent;
+}
+.search-form-top {
+    border: 1px solid #e2e2e2;
+    border-top: 3px solid #23598b;
+    display: none;
+    padding: 12px;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    z-index: 9999;
+    background: #fff;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.10);
+    min-width: 280px;
+}
+
+.main-navigation select { display: none; }
 /* =WIDGETS
 ----------------------------------------------- */
 #secondary .widget ul li, #colophon .widget ul li {
