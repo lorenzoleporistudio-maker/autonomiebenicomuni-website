@@ -51,13 +51,13 @@ function abc_logo_svg() {
 
   <!-- Marchio tipografico -->
   <g class="lm">
-    <rect x="0" y="3" width="56" height="56" rx="9" fill="#23598b"/>
-    <rect x="0" y="56" width="56" height="3" rx="1.5" fill="#ef8201"/>
+    <rect x="0" y="3" width="56" height="56" rx="9" fill="#1e4d7b"/>
+    <rect x="0" y="56" width="56" height="3" rx="1.5" fill="#c17f24"/>
     <text x="28" y="39"
           text-anchor="middle"
           font-family="system-ui,-apple-system,'Helvetica Neue',Arial,sans-serif"
           font-size="22" font-weight="800">
-      <tspan fill="#ef8201">a</tspan><tspan fill="white">bc</tspan>
+      <tspan fill="#c17f24">a</tspan><tspan fill="white">bc</tspan>
     </text>
   </g>
 
@@ -65,20 +65,20 @@ function abc_logo_svg() {
   <g class="lt" font-family="system-ui,-apple-system,'Helvetica Neue',Arial,sans-serif">
 
     <text y="21" font-size="13.5">
-      <tspan x="70" fill="#ef8201" font-weight="700">a</tspan>
+      <tspan x="70" fill="#c17f24" font-weight="700">a</tspan>
       <tspan fill="#1a1a1a">utonomie </tspan>
-      <tspan fill="#ef8201" font-weight="700">b</tspan>
+      <tspan fill="#c17f24" font-weight="700">b</tspan>
       <tspan fill="#1a1a1a">eni </tspan>
-      <tspan fill="#ef8201" font-weight="700">c</tspan>
+      <tspan fill="#c17f24" font-weight="700">c</tspan>
       <tspan fill="#1a1a1a">omuni</tspan>
     </text>
 
     <text y="38" font-size="13.5">
-      <tspan x="70" fill="#ef8201" font-weight="700">a</tspan>
+      <tspan x="70" fill="#c17f24" font-weight="700">a</tspan>
       <tspan fill="#1a1a1a">utonomies </tspan>
-      <tspan fill="#ef8201" font-weight="700">b</tspan>
+      <tspan fill="#c17f24" font-weight="700">b</tspan>
       <tspan fill="#1a1a1a">iens </tspan>
-      <tspan fill="#ef8201" font-weight="700">c</tspan>
+      <tspan fill="#c17f24" font-weight="700">c</tspan>
       <tspan fill="#1a1a1a">ommuns</tspan>
     </text>
 
