@@ -1652,3 +1652,393 @@ body {
     .fp2-grid        { grid-template-columns: 1fr; }
     .fp2-section     { padding: 40px 0 56px; }
 }
+
+/* =RICERCA — form globale
+----------------------------------------------- */
+
+.abc-search-form__wrap {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    background: #fff;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+    transition: box-shadow 0.2s;
+}
+
+.abc-search-form__wrap:focus-within {
+    box-shadow: 0 4px 20px rgba(0,0,0,0.18);
+}
+
+.abc-search-form__input {
+    flex: 1;
+    border: none !important;
+    outline: none !important;
+    background: transparent !important;
+    font-family: system-ui, -apple-system, sans-serif;
+    font-size: 1rem;
+    color: #1c1c1c !important;
+    padding: 14px 20px !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    min-width: 0;
+}
+
+.abc-search-form__input::placeholder {
+    color: #a09a92;
+    font-weight: 400;
+}
+
+.abc-search-form__input::-webkit-search-cancel-button {
+    display: none;
+}
+
+.abc-search-form__btn {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 52px;
+    background: #1e4d7b !important;
+    color: #fff;
+    border: none !important;
+    border-radius: 0 !important;
+    cursor: pointer;
+    transition: background 0.18s;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.abc-search-form__btn:hover {
+    background: #1e3d5c !important;
+}
+
+/* Override per form nella sidebar / header */
+.search-form .abc-search-form__input,
+#secondary .abc-search-form__input {
+    font-size: 0.9rem;
+    padding: 10px 14px !important;
+}
+
+.search-form .abc-search-form__btn,
+#secondary .abc-search-form__btn {
+    width: 44px;
+    height: 40px;
+}
+
+/* =SEZIONE RICERCA — front page
+----------------------------------------------- */
+
+.fp2-search {
+    background: #1e3d5c;
+    padding: 52px 0 56px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+.fp2-search__inner {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    text-align: center;
+}
+
+.fp2-search__label {
+    font-family: system-ui, -apple-system, sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.55);
+    margin: 0;
+}
+
+.fp2-search__inner .abc-search-form {
+    width: 100%;
+}
+
+.fp2-search__inner .abc-search-form__input {
+    font-size: 1.05rem !important;
+    padding: 16px 22px !important;
+}
+
+.fp2-search__inner .abc-search-form__btn {
+    width: 62px;
+    height: 56px;
+    background: #c17f24 !important;
+}
+
+.fp2-search__inner .abc-search-form__btn:hover {
+    background: #a56818 !important;
+}
+
+.fp2-search__hint {
+    font-family: system-ui, -apple-system, sans-serif;
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.35);
+    margin: 0;
+    line-height: 1.6;
+    letter-spacing: 0.02em;
+}
+
+/* =PAGINA RISULTATI
+----------------------------------------------- */
+
+/* Reset #main sulla pagina di ricerca */
+.search-results .inner-wrap {
+    padding-top: 0 !important;
+}
+
+/* Header risultati */
+.sr-header {
+    background: #1e3d5c;
+    padding: 56px 0 48px;
+}
+
+.sr-header__inner {
+    max-width: 1360px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.sr-header__label {
+    font-family: system-ui, -apple-system, sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+    margin: 0;
+}
+
+.sr-header__query {
+    font-family: 'Merriweather', Georgia, serif;
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: #fff;
+    margin: 0;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+}
+
+.sr-header__count {
+    font-family: system-ui, -apple-system, sans-serif;
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.55);
+    margin: 0;
+}
+
+.sr-header__form {
+    margin-top: 24px;
+    max-width: 600px;
+}
+
+/* Body risultati */
+.sr-body {
+    background: #f5f4f0;
+    padding: 52px 0 72px;
+}
+
+.sr-body__inner {
+    max-width: 1360px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+/* Griglia risultati: 2 colonne */
+.sr-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+    margin-bottom: 48px;
+}
+
+/* Card risultato */
+.sr-card {
+    background: #fff;
+    border-radius: 4px;
+    border-top: 3px solid #1e4d7b;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.sr-card:hover {
+    box-shadow: 0 8px 28px rgba(0,0,0,0.12);
+    transform: translateY(-2px);
+}
+
+.sr-card__media {
+    flex-shrink: 0;
+    width: 200px;
+    overflow: hidden;
+    display: block;
+    background: #e8e4dd;
+}
+
+.sr-card__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.sr-card:hover .sr-card__img {
+    transform: scale(1.04);
+}
+
+.sr-card__body {
+    padding: 24px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1;
+    min-width: 0;
+}
+
+.sr-card__meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.sr-card__date {
+    font-family: system-ui, -apple-system, sans-serif;
+    font-size: 0.78rem;
+    color: #9a9690;
+}
+
+.sr-card__title {
+    font-family: 'Merriweather', Georgia, serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    line-height: 1.4;
+    margin: 0;
+}
+
+.sr-card__title a {
+    color: #1c1c1c;
+    text-decoration: none;
+}
+
+.sr-card__title a:hover {
+    color: #1e4d7b;
+    text-decoration: none;
+}
+
+.sr-card__excerpt {
+    font-family: system-ui, -apple-system, sans-serif;
+    font-size: 0.9rem;
+    color: #6b6560;
+    line-height: 1.7;
+    margin: 0;
+    flex: 1;
+}
+
+.sr-card__cta {
+    font-family: system-ui, -apple-system, sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #1e4d7b;
+    text-decoration: none;
+    margin-top: auto;
+    border-bottom: 1px solid rgba(30,77,123,0.25);
+    padding-bottom: 1px;
+    width: fit-content;
+    transition: color 0.15s, border-color 0.15s;
+}
+
+.sr-card__cta:hover {
+    color: #c17f24;
+    border-color: rgba(193,127,36,0.4);
+    text-decoration: none;
+}
+
+/* Paginazione */
+.sr-pagination {
+    display: flex;
+    justify-content: center;
+}
+
+.sr-pagination .nav-links {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.sr-pagination .page-numbers {
+    font-family: system-ui, -apple-system, sans-serif;
+    font-size: 0.88rem;
+    font-weight: 500;
+    padding: 8px 14px;
+    border-radius: 3px;
+    text-decoration: none;
+    color: #1e4d7b;
+    background: #fff;
+    border: 1px solid #e0ddd8;
+    transition: background 0.15s, color 0.15s;
+}
+
+.sr-pagination .page-numbers.current,
+.sr-pagination .page-numbers:hover {
+    background: #1e4d7b;
+    color: #fff;
+    border-color: #1e4d7b;
+    text-decoration: none;
+}
+
+/* Nessun risultato */
+.sr-empty {
+    background: #fff;
+    border-radius: 4px;
+    border-top: 3px solid #c17f24;
+    padding: 40px 48px;
+    max-width: 600px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+}
+
+.sr-empty p {
+    font-size: 1rem;
+    color: #3a3a3a;
+    margin-bottom: 16px;
+}
+
+.sr-empty ul {
+    list-style: disc;
+    padding-left: 20px;
+    color: #6b6560;
+    font-size: 0.9rem;
+    line-height: 1.8;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .sr-grid { grid-template-columns: 1fr; }
+    .sr-card { flex-direction: column; }
+    .sr-card__media { width: 100%; height: 200px; }
+    .sr-header__query { font-size: 1.8rem; }
+    .fp2-search__inner { padding: 0 24px; }
+    .sr-header__inner,
+    .sr-body__inner { padding: 0 24px; }
+}
+
+@media (max-width: 580px) {
+    .fp2-search { padding: 40px 0; }
+    .sr-header { padding: 40px 0 36px; }
+}

@@ -63,6 +63,19 @@ endif;
 ?>
 
 <?php
+/* ── BARRA DI RICERCA ────────────────────────────────── */
+?>
+<section class="fp2-search">
+    <div class="fp2-search__inner">
+        <p class="fp2-search__label">Cerca tra tutti gli articoli pubblicati</p>
+        <?php get_search_form(); ?>
+        <p class="fp2-search__hint">
+            Consorterie · Beni comuni · Legislazione · Acque e Rûs · Corvées · Autonomia
+        </p>
+    </div>
+</section>
+
+<?php
 /* ── GRIGLIA ARTICOLI ────────────────────────────────── */
 $fp_grid = new WP_Query( [ 'posts_per_page' => 8, 'offset' => 1, 'post_status' => 'publish' ] );
 if ( $fp_grid->have_posts() ) :
