@@ -1,4 +1,6 @@
+	<?php if ( ! is_front_page() ) : ?>
 	</div><!-- .inner-wrap -->
+	<?php endif; ?>
 	</div><!-- #main -->
    <?php if ( is_active_sidebar('colormag_advertisement_above_the_footer_sidebar') ) { ?>
       <div class="advertisement_above_footer">

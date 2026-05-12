@@ -1,140 +1,121 @@
 <?php
 /**
- * Front page — Split hero OceanWP style + griglia articoli
+ * Front page — layout editoriale moderno 2026
+ * Hero full-width · Griglia 4 colonne · No sidebar
  *
  * @package ColourMag Child
  */
 get_header();
 ?>
 
-<div class="fp-wrap">
+<div class="fp2">
 
-    <?php
-    /* ── HERO SPLIT ─────────────────────────────────── */
-    $fp_hero = new WP_Query( [ 'posts_per_page' => 1, 'post_status' => 'publish' ] );
-    if ( $fp_hero->have_posts() ) :
-        $fp_hero->the_post();
-        $fp_cats      = get_the_category();
-        $fp_has_thumb = has_post_thumbnail();
-    ?>
-    <section class="fp-hero-split">
+<?php
+/* ── HERO ───────────────────────────────────────────── */
+$fp_hero = new WP_Query( [ 'posts_per_page' => 1, 'post_status' => 'publish' ] );
+if ( $fp_hero->have_posts() ) :
+    $fp_hero->the_post();
+    $fp_cats      = get_the_category();
+    $fp_has_thumb = has_post_thumbnail();
+?>
+<section class="fp2-hero <?php echo $fp_has_thumb ? 'fp2-hero--img' : 'fp2-hero--text'; ?>">
 
-        <!-- sinistra: articolo principale -->
-        <div class="fp-hero-main <?php echo $fp_has_thumb ? 'fp-has-img' : 'fp-no-img'; ?>">
+    <div class="fp2-hero__inner">
 
-            <?php if ( $fp_has_thumb ) : ?>
-            <a href="<?php the_permalink(); ?>" class="fp-hero-main__img-link" tabindex="-1" aria-hidden="true">
-                <?php the_post_thumbnail( 'large', [ 'class' => 'fp-hero-main__img' ] ); ?>
-            </a>
+        <div class="fp2-hero__body">
+
+            <?php if ( $fp_cats ) : ?>
+            <a href="<?php echo esc_url( get_category_link( $fp_cats[0]->term_id ) ); ?>"
+               class="fp2-chip"><?php echo esc_html( $fp_cats[0]->name ); ?></a>
             <?php endif; ?>
 
-            <div class="fp-hero-main__body">
-                <?php if ( $fp_cats ) : ?>
-                <a href="<?php echo esc_url( get_category_link( $fp_cats[0]->term_id ) ); ?>" class="fp-badge">
-                    <?php echo esc_html( $fp_cats[0]->name ); ?>
+            <h1 class="fp2-hero__title">
+                <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+            </h1>
+
+            <?php $fp_exc = get_the_excerpt(); if ( $fp_exc ) : ?>
+            <p class="fp2-hero__excerpt"><?php echo wp_trim_words( $fp_exc, 32 ); ?></p>
+            <?php endif; ?>
+
+            <div class="fp2-hero__meta">
+                <span class="fp2-hero__date"><?php echo get_the_date( 'j F Y' ); ?></span>
+                <a href="<?php the_permalink(); ?>" class="fp2-hero__cta">
+                    Leggi l'articolo <span aria-hidden="true">&rarr;</span>
                 </a>
-                <?php endif; ?>
-
-                <h2 class="fp-hero-main__title">
-                    <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-                </h2>
-
-                <?php $fp_excerpt = get_the_excerpt(); if ( $fp_excerpt ) : ?>
-                <p class="fp-hero-main__excerpt">
-                    <?php echo wp_trim_words( $fp_excerpt, 30 ); ?>
-                </p>
-                <?php endif; ?>
-
-                <div class="fp-hero-main__meta">
-                    <span class="fp-hero-main__date"><?php echo get_the_date(); ?></span>
-                    <a href="<?php the_permalink(); ?>" class="fp-hero-main__cta">Leggi l'articolo &rarr;</a>
-                </div>
             </div>
 
-        </div><!-- .fp-hero-main -->
+        </div><!-- .fp2-hero__body -->
 
-        <!-- destra: lista articoli recenti -->
-        <div class="fp-hero-list">
-            <div class="fp-hero-list__header">Ultimi articoli</div>
+        <?php if ( $fp_has_thumb ) : ?>
+        <div class="fp2-hero__media">
+            <a href="<?php the_permalink(); ?>" tabindex="-1" aria-hidden="true">
+                <?php the_post_thumbnail( 'large', [ 'class' => 'fp2-hero__img' ] ); ?>
+            </a>
+        </div>
+        <?php endif; ?>
 
-            <?php
-            wp_reset_postdata();
-            $fp_list = new WP_Query( [ 'posts_per_page' => 4, 'offset' => 1, 'post_status' => 'publish' ] );
-            while ( $fp_list->have_posts() ) :
-                $fp_list->the_post();
-                $fp_cats = get_the_category();
-            ?>
-            <article class="fp-list-item">
+    </div><!-- .fp2-hero__inner -->
+
+</section><!-- .fp2-hero -->
+<?php
+wp_reset_postdata();
+endif;
+?>
+
+<?php
+/* ── GRIGLIA ARTICOLI ────────────────────────────────── */
+$fp_grid = new WP_Query( [ 'posts_per_page' => 8, 'offset' => 1, 'post_status' => 'publish' ] );
+if ( $fp_grid->have_posts() ) :
+?>
+<section class="fp2-section">
+    <div class="fp2-section__inner">
+
+        <div class="fp2-section__head">
+            <span class="fp2-section__label">Ultimi articoli</span>
+        </div>
+
+        <div class="fp2-grid">
+        <?php while ( $fp_grid->have_posts() ) : $fp_grid->the_post();
+            $fp_cats = get_the_category();
+        ?>
+            <article class="fp2-card">
 
                 <?php if ( has_post_thumbnail() ) : ?>
-                <a href="<?php the_permalink(); ?>" class="fp-list-item__thumb" tabindex="-1" aria-hidden="true">
-                    <?php the_post_thumbnail( 'thumbnail', [ 'class' => 'fp-list-item__img' ] ); ?>
+                <a href="<?php the_permalink(); ?>" class="fp2-card__media"
+                   tabindex="-1" aria-hidden="true">
+                    <?php the_post_thumbnail( 'medium_large', [ 'class' => 'fp2-card__img' ] ); ?>
                 </a>
                 <?php endif; ?>
 
-                <div class="fp-list-item__body">
+                <div class="fp2-card__body">
                     <?php if ( $fp_cats ) : ?>
-                    <a href="<?php echo esc_url( get_category_link( $fp_cats[0]->term_id ) ); ?>" class="fp-badge fp-badge--sm">
+                    <a href="<?php echo esc_url( get_category_link( $fp_cats[0]->term_id ) ); ?>"
+                       class="fp2-chip fp2-chip--sm">
                         <?php echo esc_html( $fp_cats[0]->name ); ?>
                     </a>
                     <?php endif; ?>
-                    <h3 class="fp-list-item__title">
+
+                    <h2 class="fp2-card__title">
                         <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-                    </h3>
-                    <span class="fp-list-item__date"><?php echo get_the_date(); ?></span>
+                    </h2>
+
+                    <?php $fp_exc = get_the_excerpt(); if ( $fp_exc ) : ?>
+                    <p class="fp2-card__excerpt">
+                        <?php echo wp_trim_words( $fp_exc, 16 ); ?>
+                    </p>
+                    <?php endif; ?>
+
+                    <span class="fp2-card__date"><?php echo get_the_date( 'j M Y' ); ?></span>
                 </div>
 
             </article>
-            <?php endwhile; wp_reset_postdata(); ?>
+        <?php endwhile; wp_reset_postdata(); ?>
+        </div><!-- .fp2-grid -->
 
-        </div><!-- .fp-hero-list -->
+    </div><!-- .fp2-section__inner -->
+</section><!-- .fp2-section -->
+<?php endif; ?>
 
-    </section><!-- .fp-hero-split -->
-    <?php endif; ?>
-
-    <?php
-    /* ── GRIGLIA ARTICOLI + SIDEBAR ─────────────────── */
-    ?>
-    <div class="fp-body">
-
-        <main class="fp-main">
-
-            <div class="fp-section-label">In evidenza</div>
-
-            <div class="fp-grid">
-            <?php
-            $fp_grid = new WP_Query( [ 'posts_per_page' => 6, 'offset' => 5, 'post_status' => 'publish' ] );
-            while ( $fp_grid->have_posts() ) :
-                $fp_grid->the_post();
-                $fp_cats = get_the_category();
-            ?>
-                <article class="fp-card">
-                    <?php if ( has_post_thumbnail() ) : ?>
-                    <a href="<?php the_permalink(); ?>" class="fp-card__img-wrap" tabindex="-1" aria-hidden="true">
-                        <?php the_post_thumbnail( 'medium_large', [ 'class' => 'fp-card__img' ] ); ?>
-                    </a>
-                    <?php endif; ?>
-                    <div class="fp-card__body">
-                        <?php if ( $fp_cats ) : ?>
-                        <a href="<?php echo esc_url( get_category_link( $fp_cats[0]->term_id ) ); ?>" class="fp-badge fp-badge--sm">
-                            <?php echo esc_html( $fp_cats[0]->name ); ?>
-                        </a>
-                        <?php endif; ?>
-                        <h2 class="fp-card__title">
-                            <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-                        </h2>
-                        <span class="fp-card__date"><?php echo get_the_date(); ?></span>
-                    </div>
-                </article>
-            <?php endwhile; wp_reset_postdata(); ?>
-            </div>
-
-        </main>
-
-        <?php get_sidebar(); ?>
-
-    </div><!-- .fp-body -->
-
-</div><!-- .fp-wrap -->
+</div><!-- .fp2 -->
 
 <?php get_footer(); ?>

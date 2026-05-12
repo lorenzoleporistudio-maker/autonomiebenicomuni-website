@@ -121,12 +121,10 @@ wp_head();
 	<?php do_action( 'colormag_after_header' ); ?>
 	<?php do_action( 'colormag_before_main' ); ?>
 	<div id="main" class="clearfix">
+		<?php if ( ! is_front_page() ) : ?>
 		<div class="inner-wrap clearfix">
-
-<?php
-if ( function_exists('yoast_breadcrumb') ) {
-yoast_breadcrumb('
-<p id="breadcrumbs">','</p>
-');
-}
+		<?php if ( function_exists('yoast_breadcrumb') ) {
+			yoast_breadcrumb('<p id="breadcrumbs">','</p>');
+		} ?>
+		<?php endif; ?>
 ?>
