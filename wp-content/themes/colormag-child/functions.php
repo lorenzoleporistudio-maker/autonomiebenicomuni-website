@@ -64,23 +64,9 @@ function abc_logo_svg() {
   <!-- Nome bilingue -->
   <g class="lt" font-family="system-ui,-apple-system,'Helvetica Neue',Arial,sans-serif">
 
-    <text y="21" font-size="13.5">
-      <tspan x="70" fill="#c17f24" font-weight="700">a</tspan>
-      <tspan fill="#1a1a1a">utonomie </tspan>
-      <tspan fill="#c17f24" font-weight="700">b</tspan>
-      <tspan fill="#1a1a1a">eni </tspan>
-      <tspan fill="#c17f24" font-weight="700">c</tspan>
-      <tspan fill="#1a1a1a">omuni</tspan>
-    </text>
+    <text y="21" font-size="13.5"><tspan x="70" fill="#c17f24" font-weight="700">a</tspan><tspan fill="#1a1a1a">utonomie </tspan><tspan fill="#c17f24" font-weight="700">b</tspan><tspan fill="#1a1a1a">eni </tspan><tspan fill="#c17f24" font-weight="700">c</tspan><tspan fill="#1a1a1a">omuni</tspan></text>
 
-    <text y="38" font-size="13.5">
-      <tspan x="70" fill="#c17f24" font-weight="700">a</tspan>
-      <tspan fill="#1a1a1a">utonomies </tspan>
-      <tspan fill="#c17f24" font-weight="700">b</tspan>
-      <tspan fill="#1a1a1a">iens </tspan>
-      <tspan fill="#c17f24" font-weight="700">c</tspan>
-      <tspan fill="#1a1a1a">ommuns</tspan>
-    </text>
+    <text y="38" font-size="13.5"><tspan x="70" fill="#c17f24" font-weight="700">a</tspan><tspan fill="#1a1a1a">utonomies </tspan><tspan fill="#c17f24" font-weight="700">b</tspan><tspan fill="#1a1a1a">iens </tspan><tspan fill="#c17f24" font-weight="700">c</tspan><tspan fill="#1a1a1a">ommuns</tspan></text>
 
     <text x="70" y="53" font-size="10" fill="#6b6b6b" letter-spacing="0.06em">
       vallée d'aoste · valle d'aosta

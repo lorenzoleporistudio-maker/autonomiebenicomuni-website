@@ -127,4 +127,3 @@ wp_head();
 			yoast_breadcrumb('<p id="breadcrumbs">','</p>');
 		} ?>
 		<?php endif; ?>
-?>
