@@ -35,9 +35,9 @@ nav li > ol {
 #site-navigation {
    box-shadow: 0 0 2px rgba(0, 0, 0, 0.1) inset;
    position: relative;
-   border-top: 4px solid #ef8201;
-border-bottom: 2px solid #ef8201;
-background-color: #fff;
+   border-top: 4px solid #23598b;
+   border-bottom: 2px solid #23598b;
+   background-color: #fff;
 }
 #site-navigation .inner-wrap {
    position: relative;
@@ -236,7 +236,7 @@ color: #f2f2f2;
 }
 #secondary .widget-title span {
    background-color: rgba(0, 0, 0, 0);
-   color: #ef8201;
+   color: #23598b;
    padding: 6px 12px;
    display: inline-block;
 }
@@ -356,13 +356,13 @@ color: #ffff;
 }
 
 .footer-widgets-area .widget-title {
-   border-bottom: 2px solid #ef8201;
+   border-bottom: 2px solid #23598b;
    font-size: 18px;
    margin-bottom: 15px;
    padding-bottom: 0;
 }
 .footer-widgets-area .widget-title span {
-   background-color: #ef8201;
+   background-color: #23598b;
    color: #fff;
    padding: 6px 12px;
 }
@@ -405,7 +405,7 @@ color: #fff;
 ----------------------------------------------- */
 .footer-socket-wrapper {
    padding: 20px 0px 50px;
-   background-color: #ef8201;
+   background-color: #23598b;
 }
 
 .advertisement-content {
@@ -415,7 +415,7 @@ color: #fff;
 ----------------------------------------------- */
 a#scroll-up i {
 	font-size: 40px;
-	color: #e88e15;
+	color: #23598b;
 }
 /* =FORMS
 ----------------------------------------------- */
@@ -522,19 +522,19 @@ input[type="submit"]:active {
 /* =LINKS
 ----------------------------------------------- */
 a {
-	color: #ef8201;
+	color: #23598b;
 	text-decoration: none;
 }
 /* =POST CONTENT
 ----------------------------------------------- */
 .page-header .page-title {
-   border-bottom: 2px solid #ef8201;
+   border-bottom: 2px solid #23598b;
    font-size: 18px;
    margin-bottom: 15px;
    padding-bottom: 0;
 }
 .page-header .page-title span {
-   background-color: #ef8201;
+   background-color: #23598b;
    color: #fff;
    padding: 6px 12px;
    display: inline-block;
@@ -668,7 +668,7 @@ a {
 	padding-left: 5px;
 	padding-right: 5px;
 	font-size: 16px;
-	color: #ef8201;
+	color: #23598b;
 }
 .entry-meta .byline a,
 .entry-meta .cat-links a {
@@ -681,7 +681,7 @@ a {
 	margin-right: 25px;
 }
 .entry-meta a {
-	color:#ef8201
+	color: #23598b;
 }
 .entry-meta a:hover {
 	text-decoration: underline;
