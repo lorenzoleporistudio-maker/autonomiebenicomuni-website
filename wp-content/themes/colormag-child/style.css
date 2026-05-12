@@ -8,6 +8,44 @@ Template:       colormag
 Version:        0.1.0
 */
 ----------------------------
+/* =LOGO SVG
+----------------------------------------------- */
+.abc-logo-link {
+    display: inline-block;
+    line-height: 0;
+    text-decoration: none;
+    vertical-align: middle;
+}
+
+.abc-logo-link:hover {
+    text-decoration: none;
+}
+
+#abc-logo {
+    height: 58px;
+    width: auto;
+    display: block;
+    max-width: 280px;
+}
+
+/* Hover: il cerchio scurisce leggermente */
+.abc-logo-link:hover #abc-logo .lm circle {
+    fill: #1a4268;
+    transition: fill 0.2s ease;
+}
+
+#header-left-section {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+}
+
+@media (max-width: 600px) {
+    #abc-logo {
+        height: 46px;
+    }
+}
+
 /* =TYPOGRAPHY — Titoli istituzionali
 ----------------------------------------------- */
 h1, h2, h3, h4, h5, h6,
