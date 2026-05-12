@@ -11,34 +11,37 @@ function enqueue_parent_theme_style() {
     );
 }
 
+/* Nasconde la vecchia header image del tema padre (JPG 2018) */
+add_filter( 'theme_mod_header_image', '__return_empty_string' );
+
 /**
- * Logo SVG inline — autonomie beni comuni / autonomies biens communs
- * Renderizzato inline per SEO e animazioni CSS.
+ * Logo SVG inline — marchio tipografico + nome bilingue
+ * Inline per SEO, animato via CSS, zero richieste HTTP extra.
  */
 function abc_logo_svg() {
     $home_url  = esc_url( home_url( '/' ) );
     $site_name = esc_attr( get_bloginfo( 'name', 'display' ) );
     echo <<<SVG
 <a href="{$home_url}" class="abc-logo-link" rel="home" aria-label="{$site_name}">
-<svg id="abc-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 268 65"
+<svg id="abc-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 268 64"
      role="img" aria-hidden="true" focusable="false">
   <title>Autonomie Beni Comuni · Vallée d'Aoste</title>
   <style>
     .lm {
       transform-box: fill-box;
       transform-origin: center;
-      animation: lmIn .65s cubic-bezier(.34,1.56,.64,1) both;
+      animation: lmIn .6s cubic-bezier(.34,1.56,.64,1) both;
     }
     .lt {
-      animation: ltIn .48s ease both;
-      animation-delay: .28s;
+      animation: ltIn .45s ease both;
+      animation-delay: .25s;
     }
     @keyframes lmIn {
       from { transform: scale(0); opacity: 0; }
       to   { transform: scale(1); opacity: 1; }
     }
     @keyframes ltIn {
-      from { transform: translateX(-7px); opacity: 0; }
+      from { transform: translateX(-6px); opacity: 0; }
       to   { transform: translateX(0);    opacity: 1; }
     }
     @media (prefers-reduced-motion: reduce) {
@@ -46,25 +49,22 @@ function abc_logo_svg() {
     }
   </style>
 
-  <!-- Cerchio abc -->
+  <!-- Marchio tipografico -->
   <g class="lm">
-    <circle cx="30" cy="33" r="29" fill="#23598b"/>
-    <text x="30"  y="27" text-anchor="middle"
-          font-family="Georgia,'Times New Roman',serif"
-          font-size="17" font-weight="700" fill="#ef8201">B</text>
-    <text x="15"  y="49" text-anchor="middle"
-          font-family="Georgia,'Times New Roman',serif"
-          font-size="16" font-weight="700" fill="rgba(255,255,255,0.93)">A</text>
-    <text x="45"  y="49" text-anchor="middle"
-          font-family="Georgia,'Times New Roman',serif"
-          font-size="16" font-weight="700" fill="rgba(255,255,255,0.88)">C</text>
+    <rect x="0" y="3" width="56" height="56" rx="9" fill="#23598b"/>
+    <rect x="0" y="56" width="56" height="3" rx="1.5" fill="#ef8201"/>
+    <text x="28" y="39"
+          text-anchor="middle"
+          font-family="system-ui,-apple-system,'Helvetica Neue',Arial,sans-serif"
+          font-size="22" font-weight="800">
+      <tspan fill="#ef8201">a</tspan><tspan fill="white">bc</tspan>
+    </text>
   </g>
 
-  <!-- Testo -->
-  <g class="lt" font-family="'Inter','Helvetica Neue',Arial,sans-serif">
+  <!-- Nome bilingue -->
+  <g class="lt" font-family="system-ui,-apple-system,'Helvetica Neue',Arial,sans-serif">
 
-    <!-- Italiano -->
-    <text y="22" font-size="13.5">
+    <text y="21" font-size="13.5">
       <tspan x="70" fill="#ef8201" font-weight="700">a</tspan>
       <tspan fill="#1a1a1a">utonomie </tspan>
       <tspan fill="#ef8201" font-weight="700">b</tspan>
@@ -73,8 +73,7 @@ function abc_logo_svg() {
       <tspan fill="#1a1a1a">omuni</tspan>
     </text>
 
-    <!-- Francese -->
-    <text y="39" font-size="13.5">
+    <text y="38" font-size="13.5">
       <tspan x="70" fill="#ef8201" font-weight="700">a</tspan>
       <tspan fill="#1a1a1a">utonomies </tspan>
       <tspan fill="#ef8201" font-weight="700">b</tspan>
@@ -83,9 +82,7 @@ function abc_logo_svg() {
       <tspan fill="#1a1a1a">ommuns</tspan>
     </text>
 
-    <!-- Sottotitolo -->
-    <text x="70" y="54"
-          font-size="10" fill="#6b6b6b" letter-spacing="0.06em">
+    <text x="70" y="53" font-size="10" fill="#6b6b6b" letter-spacing="0.06em">
       vallée d'aoste · valle d'aosta
     </text>
 
