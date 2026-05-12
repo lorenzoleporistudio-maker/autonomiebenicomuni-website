@@ -1,44 +1,40 @@
 <?php
 /**
- * The template used for displaying page content in page.php
+ * Template per la card articolo — archivio, ricerca, blog
  *
- * @package ThemeGrill
- * @subpackage ColorMag
- * @since ColorMag 1.0
+ * @package ColourMag Child
  */
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-   <?php do_action( 'colormag_before_post_content' ); ?>
+<article id="post-<?php the_ID(); ?>" <?php post_class( 'cm-card' ); ?>>
 
-   <?php if ( has_post_thumbnail() ) { ?>
-      <div class="featured-image">
-         <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_post_thumbnail( 'colormag-featured-image' ); ?></a>
-      </div>
-   <?php } ?>
+    <?php if ( has_post_thumbnail() ) : ?>
+    <a href="<?php the_permalink(); ?>" class="cm-card__image-wrap" tabindex="-1" aria-hidden="true">
+        <?php the_post_thumbnail( 'medium_large', [ 'class' => 'cm-card__image' ] ); ?>
+    </a>
+    <?php endif; ?>
 
-   <div class="article-content clearfix">
+    <div class="cm-card__body">
 
-      <?php if( get_post_format() ) { get_template_part( 'inc/post-formats' ); } ?>
+        <?php colormag_colored_category(); ?>
 
-      <?php colormag_colored_category(); ?>
+        <header class="entry-header">
+            <h2 class="entry-title">
+                <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
+                    <?php the_title(); ?>
+                </a>
+            </h2>
+        </header>
 
-      <header class="entry-header">
-         <h2 class="entry-title">
-            <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute();?>"><?php the_title(); ?></a>
-         </h2>
-      </header>
+        <?php colormag_entry_meta(); ?>
 
-      <?php colormag_entry_meta(); ?>
+        <div class="entry-content clearfix">
+            <?php the_excerpt(); ?>
+            <a class="more-link" href="<?php the_permalink(); ?>">
+                <span><?php _e( 'Leggi', 'colormag' ); ?></span>
+            </a>
+        </div>
 
-      <div class="entry-content clearfix">
-         <?php
-            the_excerpt();
-         ?>
-         <a class="more-link" title="<?php the_title(); ?>" href="<?php the_permalink(); ?>"><span><?php _e( 'Apri', 'colormag' ); ?></span></a>
-      </div>
+    </div>
 
-   </div>
-
-   <?php do_action( 'colormag_after_post_content' ); ?>
 </article>

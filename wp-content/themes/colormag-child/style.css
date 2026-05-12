@@ -1503,6 +1503,159 @@ a#scroll-up i {
     flex-shrink: 0;
 }
 
+/* =CARD ARTICOLI — archivio, ricerca, blog
+----------------------------------------------- */
+
+.cm-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-card);
+    margin-bottom: 28px;
+    transition: box-shadow var(--transition), transform var(--transition);
+}
+
+.cm-card:hover {
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-2px);
+}
+
+.cm-card__image-wrap {
+    display: block;
+    overflow: hidden;
+    aspect-ratio: 16/7;
+    background: var(--color-section);
+    flex-shrink: 0;
+}
+
+.cm-card__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.35s ease;
+}
+
+.cm-card:hover .cm-card__image {
+    transform: scale(1.03);
+}
+
+.cm-card__body {
+    padding: 22px 26px 24px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+/* Override parent theme colored category badge inside cm-card */
+.cm-card .above-entry-meta {
+    margin-bottom: 10px;
+}
+
+.cm-card .above-entry-meta .cat-links a {
+    background-color: var(--color-orange);
+    border-radius: 2px;
+    color: #fff;
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 3px 9px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.cm-card .above-entry-meta .cat-links a:hover {
+    background-color: #d4720a;
+    text-decoration: none;
+}
+
+.cm-card .entry-title {
+    font-family: var(--font-title);
+    font-size: 1.4rem;
+    font-weight: 700;
+    line-height: 1.3;
+    margin: 0 0 10px;
+}
+
+.cm-card .entry-title a {
+    color: var(--color-text);
+    text-decoration: none;
+}
+
+.cm-card .entry-title a:hover {
+    color: var(--color-accent);
+    text-decoration: none;
+}
+
+.cm-card .entry-meta {
+    font-size: 0.8rem;
+    color: var(--color-muted);
+    margin-bottom: 14px;
+    padding-bottom: 0;
+}
+
+.cm-card .entry-meta a {
+    color: var(--color-muted);
+}
+
+.cm-card .entry-meta a:hover {
+    color: var(--color-accent);
+}
+
+.cm-card .entry-content {
+    font-size: 0.95rem;
+    color: var(--color-muted);
+    line-height: 1.65;
+    margin-bottom: 0;
+}
+
+.cm-card .entry-content p {
+    margin-bottom: 1em;
+}
+
+.cm-card .more-link {
+    display: inline-block;
+    background: transparent;
+    border: 1px solid var(--color-accent);
+    border-radius: var(--radius);
+    margin-top: 4px;
+    transition: background var(--transition), color var(--transition);
+}
+
+.cm-card .more-link:hover {
+    background: var(--color-accent);
+    text-decoration: none;
+}
+
+.cm-card .more-link span {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    color: var(--color-accent);
+    display: inline-block;
+    transition: color var(--transition);
+}
+
+.cm-card .more-link:hover span {
+    color: #fff;
+}
+
+/* Archive: reset eredità stili del tema padre sulle card */
+.archive #content .post.cm-card:nth-child(2n+1),
+.archive #content .post.cm-card:nth-child(2n),
+.archive #content .post.cm-card:first-child {
+    float: none;
+    width: 100%;
+    clear: none;
+}
+
 /* =RESPONSIVE
 ----------------------------------------------- */
 @media (max-width: 1024px) {
@@ -1512,6 +1665,18 @@ a#scroll-up i {
 }
 
 @media (max-width: 768px) {
+    .cm-card {
+        flex-direction: column;
+    }
+
+    .cm-card__body {
+        padding: 18px 20px 20px;
+    }
+
+    .cm-card .entry-title {
+        font-size: 1.2rem;
+    }
+
     .fp-hero--has-image {
         grid-template-columns: 1fr;
     }
