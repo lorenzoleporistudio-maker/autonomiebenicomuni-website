@@ -812,6 +812,329 @@ a {
    cursor: pointer;
    display: inline-block;
 }
-.more-link  span:hover {
+.more-link span:hover {
    background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* =FRONT PAGE — Split Hero OceanWP style
+----------------------------------------------- */
+
+.fp-wrap {
+    padding: 28px 0 48px;
+}
+
+/* ── Badge categoria ── */
+.fp-badge {
+    display: inline-block;
+    background: #ef8201;
+    color: #fff;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 3px 9px;
+    border-radius: 2px;
+    text-decoration: none;
+    transition: background 0.18s;
+    line-height: 1;
+}
+.fp-badge:hover { background: #d4720a; color: #fff; text-decoration: none; }
+.fp-badge--sm   { font-size: 0.62rem; padding: 2px 7px; }
+
+/* ── Hero split ── */
+.fp-hero-split {
+    display: flex;
+    min-height: 420px;
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid #e2e2e2;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+    margin-bottom: 40px;
+}
+
+/* SINISTRA — articolo principale */
+.fp-hero-main {
+    flex: 0 0 62%;
+    position: relative;
+    background: #23598b;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Con immagine: la foto copre l'intera area sinistra */
+.fp-hero-main.fp-has-img .fp-hero-main__img-link {
+    position: absolute;
+    inset: 0;
+    display: block;
+}
+.fp-hero-main.fp-has-img .fp-hero-main__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+.fp-hero-main.fp-has-img:hover .fp-hero-main__img {
+    transform: scale(1.03);
+}
+/* Gradiente scuro in basso per leggibilità testo */
+.fp-hero-main.fp-has-img::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to top,
+        rgba(0,0,0,0.82) 0%,
+        rgba(0,0,0,0.35) 55%,
+        transparent 100%
+    );
+    pointer-events: none;
+}
+
+/* Testo sovrapposto all'immagine */
+.fp-hero-main.fp-has-img .fp-hero-main__body {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    padding: 28px 32px;
+}
+
+/* Senza immagine: testo centrato verticalmente su sfondo blu */
+.fp-hero-main.fp-no-img {
+    justify-content: flex-end;
+}
+.fp-hero-main.fp-no-img .fp-hero-main__body {
+    padding: 40px 36px;
+}
+
+.fp-hero-main__body {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.fp-hero-main__title {
+    font-family: 'Merriweather', Georgia, serif;
+    font-size: 1.65rem;
+    font-weight: 700;
+    line-height: 1.25;
+    margin: 0;
+}
+.fp-hero-main__title a {
+    color: #fff;
+    text-decoration: none;
+}
+.fp-hero-main__title a:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+    color: #fff;
+}
+
+.fp-hero-main__excerpt {
+    color: rgba(255,255,255,0.85);
+    font-size: 0.95rem;
+    line-height: 1.65;
+    margin: 0;
+}
+
+.fp-hero-main__meta {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.fp-hero-main__date {
+    color: rgba(255,255,255,0.6);
+    font-size: 0.8rem;
+}
+.fp-hero-main__cta {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #fff;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255,255,255,0.45);
+    padding-bottom: 1px;
+    transition: border-color 0.18s;
+}
+.fp-hero-main__cta:hover {
+    border-color: #fff;
+    color: #fff;
+    text-decoration: none;
+}
+
+/* DESTRA — lista articoli */
+.fp-hero-list {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border-left: 1px solid #e2e2e2;
+    min-width: 0;
+}
+
+.fp-hero-list__header {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #6b6b6b;
+    padding: 14px 20px 12px;
+    border-bottom: 2px solid #23598b;
+    background: #fafafa;
+}
+
+.fp-list-item {
+    display: flex;
+    gap: 12px;
+    padding: 14px 18px;
+    border-bottom: 1px solid #f0f0f0;
+    text-decoration: none;
+    transition: background 0.15s;
+    align-items: flex-start;
+}
+.fp-list-item:last-child { border-bottom: none; }
+.fp-list-item:hover      { background: #f7f9fc; }
+
+.fp-list-item__thumb {
+    flex-shrink: 0;
+    width: 74px;
+    height: 56px;
+    overflow: hidden;
+    border-radius: 3px;
+    display: block;
+    background: #e8e8e8;
+}
+.fp-list-item__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.25s ease;
+}
+.fp-list-item:hover .fp-list-item__img { transform: scale(1.06); }
+
+.fp-list-item__body {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    min-width: 0;
+    flex: 1;
+}
+.fp-list-item__title {
+    font-family: 'Merriweather', Georgia, serif;
+    font-size: 0.88rem;
+    font-weight: 700;
+    line-height: 1.35;
+    margin: 0;
+}
+.fp-list-item__title a { color: #1a1a1a; text-decoration: none; }
+.fp-list-item__title a:hover { color: #23598b; }
+.fp-list-item__date { font-size: 0.74rem; color: #6b6b6b; }
+
+/* ── Corpo pagina: griglia + sidebar ── */
+.fp-body {
+    display: flex;
+    gap: 36px;
+    align-items: flex-start;
+}
+.fp-main { flex: 1; min-width: 0; }
+
+.fp-section-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #1a1a1a;
+    border-bottom: 2px solid #23598b;
+    padding-bottom: 8px;
+    margin-bottom: 22px;
+}
+
+/* ── Card griglia ── */
+.fp-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.fp-card {
+    background: #fff;
+    border: 1px solid #e2e2e2;
+    border-radius: 3px;
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    transition: box-shadow 0.2s, transform 0.2s;
+    display: flex;
+    flex-direction: column;
+}
+.fp-card:hover {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.11);
+    transform: translateY(-2px);
+}
+
+.fp-card__img-wrap {
+    display: block;
+    overflow: hidden;
+    aspect-ratio: 16/9;
+    background: #f0f0f0;
+    flex-shrink: 0;
+}
+.fp-card__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+.fp-card:hover .fp-card__img { transform: scale(1.04); }
+
+.fp-card__body {
+    padding: 16px 18px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+}
+.fp-card__title {
+    font-family: 'Merriweather', Georgia, serif;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.35;
+    margin: 0;
+}
+.fp-card__title a { color: #1a1a1a; text-decoration: none; }
+.fp-card__title a:hover { color: #23598b; }
+.fp-card__date {
+    font-size: 0.76rem;
+    color: #6b6b6b;
+    margin-top: auto;
+    padding-top: 6px;
+    border-top: 1px solid #f0f0f0;
+}
+
+/* ── Sidebar (riusa stile esistente #secondary) ── */
+.fp-body #secondary {
+    width: 290px;
+    flex-shrink: 0;
+}
+
+/* ── Responsive ── */
+@media (max-width: 960px) {
+    .fp-hero-split    { flex-direction: column; min-height: auto; }
+    .fp-hero-main     { flex: none; min-height: 320px; }
+    .fp-hero-list     { border-left: none; border-top: 1px solid #e2e2e2; }
+    .fp-grid          { grid-template-columns: repeat(2, 1fr); }
+    .fp-body          { flex-direction: column; }
+    .fp-body #secondary { width: 100%; }
+}
+
+@media (max-width: 600px) {
+    .fp-hero-main.fp-has-img .fp-hero-main__body { padding: 20px; }
+    .fp-hero-main.fp-no-img  .fp-hero-main__body { padding: 24px 20px; }
+    .fp-hero-main__title { font-size: 1.3rem; }
+    .fp-grid { grid-template-columns: 1fr; }
 }
