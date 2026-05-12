@@ -18,10 +18,7 @@
                   </div>
                   <div class="footer-socket-left-section">
                   </div>
-<div id="footer">
-    <p>Autonomies Biens Communs Vallée d’Aoste – Autonomie Beni Comuni Valle d’Aosta</p>
-    <p>Via Avondo, 8 – 11100 – AOSTA &nbsp;·&nbsp; C.F. 91069090073 &nbsp;·&nbsp; <a href="mailto:info@autonomiebenicomuni.eu">info@autonomiebenicomuni.eu</a></p>
-</div>
+<div id="footer"><p align="center">Autonomies Biens Communs Vallée d’Aoste – Autonomie Beni Comuni Valle d’Aosta<br> <br>Via Avondo, 8 – 11100 – AOSTA - C.F. 91069090073 <br>info@autonomiebenicomuni.eu</p></div>
 					</div>
 				</div>
 			</div>
